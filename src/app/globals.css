@@ -15,7 +15,28 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  /* color: var(--foreground);
+  background: var(--background); */
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+
+/*** RE_SETS ***/
+body {
+  position: relative; /* Establish a positioning context for the footer */
+  min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+}
+
+footer {
+  position: absolute;
+  top: 100%; /* Places the footer immediately after the body content */
+  left: 0;
+  width: 100%;
 }

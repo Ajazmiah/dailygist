@@ -1,0 +1,19 @@
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden off-screen */
+    height: 100%;
+    background-color: #000;
+    transition: left 0.3s ease-in-out;
+    padding: 20px;
+    color: #fff;
+    padding-top: 2.5em;
+  }
+  .active {
+    left: 0; /* Slide in */
+  }
+  .toggle {
+    position: relative;
+    left: 255px;
+    transition:  left 0.3s ease-in;
+  }
