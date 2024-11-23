@@ -1,12 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import { PerigontypeArticle } from "@/TYEPS";
+import next from "next";
 
 const key = process.env.NEWSDATA_IO_KEY
 
 const fetchArticles = async (category: string, currentId:string) => {
   try {
-    const perigonURL = `https://newsdata.io/api/1/latest?country=us,gb&domain=bbc,yahoo,nbcnews,foxnews,politico&image=1&apikey=${key}&category=${category}&size=3`
+    const perigonURL = `https://newsdata.io/api/1/latest?country=us,gb,in,bd&image=1&apikey=${key}&category=${category}&size=3&prioritydomain=top`
     const res = await fetch(perigonURL);
 
     if (!res.ok) {

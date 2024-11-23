@@ -47,11 +47,11 @@ async function page({ params }: { params: { id: string; category: string } }) {
         </aside>
         <main className="md:w-3/4">
           <Link
-            className="rounded-md block w-[100px] mb-[1em] bg-black py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+            className="rounded-md block w-[200px] mb-[1em] bg-black py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
             type="button"
             href={`/category/${params.category}`}
           >
-            Categories
+            Categories: {category}
           </Link>
           <article>
             <div className=" mx-auto p-6 bg-white rounded-lg shadow-md">
