@@ -1,8 +1,7 @@
 "use client";
 import { getIcon } from "@/utils/utils";
 import Link from "next/link";
-import React, { useEffect } from "react";
-import Styles from "./CategoryMenu.module.css";
+import React from "react";
 
 function CategoryMenu({ catergoryParam }: { catergoryParam: string }) {
   const categories = [
