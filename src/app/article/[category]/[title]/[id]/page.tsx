@@ -16,7 +16,7 @@ export async function generateMetadata({
   };
 }
 
-const key = process.env.NEWSDATA_IO_KEY
+const key = process.env.NEWSDATA_IO_KEY;
 
 const fetchPost = async (id: string) => {
   const perigonURL = `https://newsdata.io/api/1/latest?&apikey=${key}&id=${id}`;
@@ -36,26 +36,6 @@ async function page({ params }: { params: { id: string; category: string } }) {
 
   const article = await fetchPost(id);
 
-  const ADS = [
-    {
-      id: 1,
-      title: "Super Sale - 50% Off on Electronics",
-      image: "https://via.placeholder.com/300x200?text=Electronics+Ad",
-      description:
-        "Get amazing discounts on the latest electronics. Offer valid until stocks last!",
-      link: "https://www.electronics-store.com/sale",
-    },
-    {
-      id: 2,
-      title: "Luxury Watches at Unbeatable Prices",
-      image: "https://via.placeholder.com/300x200?text=Watches+Ad",
-      description:
-        "Explore our collection of luxury watches at the best prices.",
-      link: "https://www.watches-shop.com/deals",
-      verticle: true,
-    },
-  ];
-
   return (
     <div className="container m-auto">
       <div className="mx-auto pt-[10em] pb-[8em] px-[2em] flex gap-16 max-w-[1280px]md:flex> ">
@@ -63,7 +43,7 @@ async function page({ params }: { params: { id: string; category: string } }) {
           <h3 className="p-4 pb-1 text-xl font-semibold">More Like This</h3>
 
           <div className="border-t border-black border-4"></div>
-           <MoreLikeThis  category={category} currentId={id}/> 
+          <MoreLikeThis category={category} currentId={id} />
         </aside>
         <main className="md:w-3/4">
           <Link

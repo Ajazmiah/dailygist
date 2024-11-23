@@ -19,21 +19,18 @@ function CategoryMenu({ catergoryParam }: { catergoryParam: string }) {
     "Food",
   ];
 
-  const [active, setActive] = React.useState(false);
-  const [selectedCategory, setSelectedCategory] = React.useState(
-    catergoryParam || "Tech"
-  );
+  // const [selectedCategory, setSelectedCategory] = React.useState(
+  //   catergoryParam || "Technology"
+  // );
 
-  useEffect(() => {
-    // Set the selected category based on the initial `catergoryParam` prop
-    if (catergoryParam) {
-      setSelectedCategory(catergoryParam);
-    }
-  }, [catergoryParam]);
+  // useEffect(() => {
+  //   // Set the selected category based on the initial `catergoryParam` prop
+  //   if (catergoryParam) {
+  //     setSelectedCategory(catergoryParam);
+  //   }
+  // }, [catergoryParam]);
 
-  const menuClasses = `flex flex-col pt-8 w-full absolute top-[15vh]  h-[auto] z-[100] ${
-    active ? Styles["active"] : ""
-  }`;
+  const menuClasses = `flex flex-col pt-8 w-full absolute top-[15vh]  h-[auto] z-[100]`;
 
   return (
     <>
@@ -48,9 +45,8 @@ function CategoryMenu({ catergoryParam }: { catergoryParam: string }) {
               >
                 <span
                   className="text-sm font-medium text-black"
-                  onClick={() => setSelectedCategory(category)}
                   style={
-                    selectedCategory === category
+                    catergoryParam === category
                       ? { borderBottom: "2px solid red" }
                       : {}
                   }

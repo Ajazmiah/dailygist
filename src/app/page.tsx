@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 export default async function Home() {
-  redirect("/category/technology");
+  redirect("/category/Technology");
 
 
 }

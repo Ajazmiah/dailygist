@@ -14,10 +14,10 @@ export default async function CategoryPage({
   let Articles = { results: [] };
 
   try {
-    const sources = getAllSources(category);
+    // const sources = getAllSources(category);
 
-    const fromDate = getTwoDaysAgo();
-    const toDate = getTodaysDate();
+    // const fromDate = getTwoDaysAgo();
+    // const toDate = getTodaysDate();
 
     const URL = `https://newsdata.io/api/1/latest?country=us,gb&domain=bbc,yahoo,nbcnews,foxnews,politico&image=1&apikey=${key}&category=${category}`
 
