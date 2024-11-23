@@ -57,7 +57,7 @@ async function page({ params }: { params: { id: string; category: string } }) {
   ];
 
   return (
-    <div className="container">
+    <div className="container m-auto">
       <div className="mx-auto pt-[10em] pb-[8em] px-[2em] flex gap-16 max-w-[1280px]md:flex> ">
         <aside className="w-1/4 w-[330px] hidden lg:block">
           <h3 className="p-4 pb-1 text-xl font-semibold">More Like This</h3>
