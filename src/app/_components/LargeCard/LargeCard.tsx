@@ -19,7 +19,7 @@ function LargeCard({ articles, category }: newsDataTypeProps) {
           <Link
 
             key={article.article_id}
-            href={`/article/${category}/${article.title}/${article.article_id}`}
+            href={`/article/${category || article.category[0]}/${article.title}/${article.article_id}`}
             className=" absolute overflow-hidden h-fit max-w-full relative  transition hover:shadow-lg hover:cursor-pointer flex-shrink-0"
           >
             <div

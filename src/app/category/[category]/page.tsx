@@ -56,7 +56,8 @@ export default async function CategoryPage({
       source_url: article.source_url,
       source_icon: article.source_icon,
       language: article.language,
-      country: article.country
+      country: article.country,
+      category: article.category
     };
   });
 

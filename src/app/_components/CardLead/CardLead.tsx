@@ -8,7 +8,6 @@ type newsDataTypeProps = {
 };
 
 function CardVerticle({ article, category }: newsDataTypeProps) {
-  console.log("ARTICLE__", article)
   return (
     <Link
       href={`/article/${category}/${article.title}/${article.article_id}`}
