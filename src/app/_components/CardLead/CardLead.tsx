@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PerigontypeArticle } from "@/TYEPS";
 
 type newsDataTypeProps = {
-  article: PerigontypeArticle;
+  article: PerigontypeArticle
   category: string;
 };
 
