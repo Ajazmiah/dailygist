@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PerigontypeArticle } from "@/TYEPS";
 import CategoryMenu from "../CategoryMenu/CategoryMenu";
 import CardVerticle from "../CardLead/CardLead";
+import LargeCard from "../LargeCard/LargeCard";
 
 function Articles({
   data,
@@ -10,21 +11,28 @@ function Articles({
 }: {
   data: PerigontypeArticle[];
   category: string;
-
 }) {
-  const lastPage = null;
+
 
   return (
     <>
       <CategoryMenu catergoryParam={category} />
+
+
       <div className="container mx-auto md:mt-[5em] mt-[10em] p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <LargeCard articles={data.splice(0, 6)} category={category} />
+
         <div className="flex flex-wrap gap-5 gap-y-7 justify-center container mt-[3em]">
           {data?.map((newsData: PerigontypeArticle) => (
-            <CardVerticle article={newsData} key={newsData.article_id}  category={category}/>
+            <CardVerticle
+              article={newsData}
+              key={newsData.article_id}
+              category={category}
+            />
           ))}
         </div>
 
-        <div className="flex justify-center gap-4">
+        {/* <div className="flex justify-center gap-4">
           {lastPage ? (
             <Link
               className="text-center my-[2em] block"
@@ -44,7 +52,7 @@ function Articles({
               <span>Next</span>
             </button>
           </Link>
-        </div>
+        </div> */}
       </div>
     </>
   );
