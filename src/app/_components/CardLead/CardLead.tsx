@@ -3,21 +3,20 @@ import Link from "next/link";
 import { PerigontypeArticle } from "@/TYEPS";
 
 type newsDataTypeProps = {
-  article: PerigontypeArticle
+  article: PerigontypeArticle;
   category: string;
 };
 
 function CardVerticle({ article, category }: newsDataTypeProps) {
+
+  const CATEGORY = category || article.category[0] || 'top'
   return (
     <Link
-      href={`/article/${category}/${article.title}/${article.article_id}`}
-      style={{ flexBasis: "400px" }}
+      href={`/article/${CATEGORY}/${article.title}/${article.article_id}`}
+      style={{ flexBasis: "350px" }}
       className="overflow-hidden h-fit max-w-full relative rounded-lg shadow transition hover:shadow-lg flex-shrink-0 hover:cursor-pointer"
     >
-      <div
-        className="overflow-hidden max-w-full rounded-lg shadow transition hover:shadow-lg flex-shrink-0 hover:cursor-pointer"
-        style={{ flexBasis: "400px", height: "100%" }}
-      >
+      <div className="overflow-hidden max-w-full rounded-lg shadow transition hover:shadow-lg flex-shrink-0 hover:cursor-pointer">
         <img
           alt=""
           src={article.image_url}
@@ -38,12 +37,15 @@ function CardVerticle({ article, category }: newsDataTypeProps) {
             {article.description}
           </p> */}
           <img
-           
-            style={{ top: "0", maxWidth:'50px', right: '0', position:'absolute' }}
-            src= {article.source_icon}
-          >
-           
-          </img>        </div>
+            style={{
+              top: "0",
+              maxWidth: "50px",
+              right: "0",
+              position: "absolute",
+            }}
+            src={article.source_icon}
+          ></img>{" "}
+        </div>
       </div>
     </Link>
   );

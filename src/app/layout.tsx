@@ -22,8 +22,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { [key: string]: string }; // Adjust type based on your dynamic route
 }>) {
   return (
     <html lang="en">
