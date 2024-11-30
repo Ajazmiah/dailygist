@@ -1,5 +1,6 @@
 import { PerigontypeArticle } from "@/TYEPS";
 import ArticleLists from "@/app/_components/Articles/Articles";
+import { mockData } from "./mockData";
 
 export default async function CategoryPage({
   params,
@@ -23,7 +24,7 @@ export default async function CategoryPage({
     }
 
     const articles = await res.json();
-    Articles = articles;
+    Articles = articles || mockData
   } catch (error) {
     console.error("Error fetching articles:", error);
   }
