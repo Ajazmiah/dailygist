@@ -36,6 +36,8 @@ async function page({ params }: { params: { id: string; category: string } }) {
 
   const article = await fetchPost(id);
 
+  if(!article)  notFound(); 
+
   return (
     <div className="container m-auto">
       <div className="mx-auto pt-[10em] pb-[8em] px-[2em] flex gap-16 max-w-[1280px]md:flex> ">

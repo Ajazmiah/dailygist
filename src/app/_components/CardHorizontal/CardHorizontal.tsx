@@ -21,7 +21,7 @@ function CardHorizontal({ articles, category }: ArticlesDataWithChildrent) {
             <Link
               key={article.article_id}
               href={`/article/${CATEGORY}/${cleanTitle}/${article.article_id}`}
-              className="basis-1/2"
+              className="basis-1/2 flex items-center"
             >
               <div className="flex gap-5 items-center">
                 <img
@@ -39,7 +39,7 @@ function CardHorizontal({ articles, category }: ArticlesDataWithChildrent) {
                   <h3 className="mt-0.5 text-lg text-gray-900 font-medium">
                     {article.title}
                   </h3>
-                  <p className="text-sm text-gray-700 mt-1 line-clamp-3 overflow-hidden text-ellipsis">
+                  <p className="text-sm text-gray-700 mt-1 line-clamp-2 overflow-hidden text-ellipsis">
                     {article.description}
                   </p>
                 </div>
