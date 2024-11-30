@@ -2,23 +2,17 @@ import React from "react";
 import Link from "next/link";
 import { PerigontypeArticle } from "@/TYEPS";
 
-type LeadArticleCardContext = {
-  article: PerigontypeArticle;
-};
-
 type ArticlesDataWithChildrent = {
   articles: PerigontypeArticle[];
   category?: string;
-  renderItem?: (article: PerigontypeArticle) => React.ReactNode;
 };
 
-export default function LeadArticleCard({
-  articles,
-  category,
-  renderItem,
-}: ArticlesDataWithChildrent) {
+function CardHorizontal({ articles, category }: ArticlesDataWithChildrent) {
   return (
-    <div className="col-span-4 p-4" style={{ height: "max-content" }}>
+    <div
+      className="col-span-4  flex flex-wrap"
+      style={{ height: "max-content" }}
+    >
       {articles.map((article: PerigontypeArticle) => {
         const CATEGORY = category || article.category[0] || "top";
         const cleanTitle = article.title.split("%20").join("-");
@@ -27,13 +21,14 @@ export default function LeadArticleCard({
             <Link
               key={article.article_id}
               href={`/article/${CATEGORY}/${cleanTitle}/${article.article_id}`}
-              className=" absolute overflow-hidden h-fit max-w-full relative  transition hover:shadow-lg hover:cursor-pointer flex-shrink-0"
+              className="basis-1/2"
             >
-              <div
-                className="overflow-hidden max-w-full pl-[0] flex-shrink-0"
-                style={{ height: "100%" }}
-              >
-                {renderItem && renderItem(article)}
+              <div className="flex gap-5 items-center">
+                <img
+                  alt={article.title}
+                  src={article.image_url}
+                  className=" w-[200px] h-full align-center object-cover"
+                />
                 <div className="bg-white p-4 sm:p-6" style={{ paddingLeft: 0 }}>
                   <time
                     dateTime={new Date(article.pubDate).toISOString()}
@@ -47,16 +42,6 @@ export default function LeadArticleCard({
                   <p className="text-sm text-gray-700 mt-1 line-clamp-3 overflow-hidden text-ellipsis">
                     {article.description}
                   </p>
-                  {/* <img
-                    alt="Source Icon"
-                    src={article.source_icon}
-                    style={{
-                      top: "0",
-                      maxWidth: "50px",
-                      right: "0",
-                      position: "absolute",
-                    }}
-                  /> */}
                 </div>
               </div>
             </Link>
@@ -69,3 +54,5 @@ export default function LeadArticleCard({
     </div>
   );
 }
+
+export default CardHorizontal;
