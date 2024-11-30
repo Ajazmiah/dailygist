@@ -16,7 +16,7 @@ export default function LeadArticleCard({
   return (
     <div className="col-span-4 p-4" style={{ height: "max-content" }}>
       {articles.map((article: PerigontypeArticle) => {
-        const CATEGORY = category || article.category[0] || "top";
+        const CATEGORY = category || article.category || "top";
         const cleanTitle = article.title.split("%20").join("-");
         return (
           <>
