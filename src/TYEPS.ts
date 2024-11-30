@@ -71,6 +71,7 @@
     source_icon: string;
     language: string;
     country: string[];
+    category: []
   };
   
 

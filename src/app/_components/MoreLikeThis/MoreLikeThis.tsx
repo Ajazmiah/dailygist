@@ -7,7 +7,7 @@ const key = process.env.NEWSDATA_IO_KEY
 
 const fetchArticles = async (category: string, currentId:string) => {
   try {
-    const perigonURL = `https://newsdata.io/api/1/latest?country=us,gb,in,bd&image=1&apikey=${key}&category=${category}&size=3&prioritydomain=top`
+    const perigonURL = `https://newsdata.io/api/1/latest?country=us,gb,in,bd&image=1&apikey=${key}&category=${category === 'other' ? 'top': category}&size=3&language=en`
     const res = await fetch(perigonURL);
 
     if (!res.ok) {
