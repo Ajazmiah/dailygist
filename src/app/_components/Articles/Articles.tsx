@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import { PerigontypeArticle } from "@/TYEPS";
 import CategoryMenu from "../CategoryMenu/CategoryMenu";
 import LeadArticles from "../LeadArticles/LeadArticles";

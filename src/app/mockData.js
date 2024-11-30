@@ -1,4 +1,5 @@
-export const mockData = [
+export const mockData = {
+  results: [
     {
       "article_id": "dc337ada6788162393d17a9d1290e8c8",
       "title": "Investigadores de la UNAM identifican nueva especie de árbol en la Sierra Madre",
@@ -67,3 +68,4 @@ export const mockData = [
       "duplicate": false
     }
 ]
+}

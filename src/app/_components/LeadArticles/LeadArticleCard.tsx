@@ -2,10 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { PerigontypeArticle } from "@/TYEPS";
 
-type LeadArticleCardContext = {
-  article: PerigontypeArticle;
-};
-
 type ArticlesDataWithChildrent = {
   articles: PerigontypeArticle[];
   category?: string;

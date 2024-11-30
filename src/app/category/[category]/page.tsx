@@ -1,6 +1,6 @@
 import { PerigontypeArticle } from "@/TYEPS";
 import ArticleLists from "@/app/_components/Articles/Articles";
-import {mockData} from "@/app/mockData.js"
+import { mockData } from "@/app/mockData.js";
 
 export default async function CategoryPage({
   params,
@@ -9,16 +9,11 @@ export default async function CategoryPage({
 }) {
   const category = params.category;
 
-  const key = process.env.NEWSDATA_IO_KEY
+  const key = process.env.NEWSDATA_IO_KEY;
   let Articles = { results: [] };
 
   try {
-    // const sources = getAllSources(category);
-
-    // const fromDate = getTwoDaysAgo();
-    // const toDate = getTodaysDate();
-
-    const URL = `https://newsdata.io/api/1/latest?country=us,gb&domain=bbc,yahoo,nbcnews,foxnews,politico&image=1&apikey=${key}&category=${category}`
+    const URL = `https://newsdata.io/api/1/latest?country=us,gb&domain=bbc,yahoo,nbcnews,foxnews,politico&image=1&apikey=${key}&category=${category}`;
 
     const perigonURL = URL;
 
@@ -26,13 +21,12 @@ export default async function CategoryPage({
       next: { revalidate: 3600 },
     });
 
-
     if (!res.ok) {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
 
     const articles = await res.json();
-    Articles = articles 
+    Articles = articles;
   } catch (error) {
     console.error("Error fetching articles:", error);
   }
@@ -57,7 +51,7 @@ export default async function CategoryPage({
       source_icon: article.source_icon,
       language: article.language,
       country: article.country,
-      category: article.category
+      category: article.category,
     };
   });
 

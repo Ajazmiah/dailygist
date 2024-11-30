@@ -1,7 +1,6 @@
 import React from "react";
 import AdSquare from "@/app/_components/Ad/AdSquare";
 import AdVertical from "@/app/_components/Ad/AdVertical";
-import Link from "next/link";
 import MoreLikeThis from "@/app/_components/MoreLikeThis/MoreLikeThis";
 import { notFound } from "next/navigation";
 

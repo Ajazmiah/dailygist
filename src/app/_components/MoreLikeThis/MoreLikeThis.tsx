@@ -1,13 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import { PerigontypeArticle } from "@/TYEPS";
-import next from "next";
 
-const key = process.env.NEWSDATA_IO_KEY
+const key = process.env.NEWSDATA_IO_KEY;
 
-const fetchArticles = async (category: string, currentId:string) => {
+const fetchArticles = async (category: string, currentId: string) => {
   try {
-    const perigonURL = `https://newsdata.io/api/1/latest?country=us,gb,in,bd&image=1&apikey=${key}&category=${category === 'other' ? 'top': category}&size=3&language=en`
+    const perigonURL = `https://newsdata.io/api/1/latest?country=us,gb,in,bd&image=1&apikey=${key}&category=${
+      category === "other" ? "top" : category
+    }&size=3&language=en`;
     const res = await fetch(perigonURL);
 
     if (!res.ok) {
@@ -15,7 +16,9 @@ const fetchArticles = async (category: string, currentId:string) => {
     }
 
     const data = await res.json();
-    return data.results.filter((article: PerigontypeArticle) => article.article_id !== currentId)
+    return data.results.filter(
+      (article: PerigontypeArticle) => article.article_id !== currentId
+    );
   } catch (error) {
     console.error("An error occurred while fetching the post:", error);
   }
@@ -23,12 +26,12 @@ const fetchArticles = async (category: string, currentId:string) => {
 
 async function MoreLikeThis({
   category,
-  currentId
+  currentId,
 }: {
   category: string;
-  currentId:string
+  currentId: string;
 }) {
-  const articles = await fetchArticles(category,currentId);
+  const articles = await fetchArticles(category, currentId);
   return (
     <>
       {articles.map((article: PerigontypeArticle) => (

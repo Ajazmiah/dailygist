@@ -1,6 +1,5 @@
 import { PerigontypeArticle } from "@/TYEPS";
 import ArticleLists from "@/app/_components/Articles/Articles";
-import { mockData } from "@/app/mockData.js";
 
 export default async function CategoryPage({
   params,
