@@ -8,7 +8,7 @@ const AdSense = ({ pId }: AdsenseTypes) => {
   return (
     <Script
       async
-      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-${pId}`}
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4339219773762700`}
       crossOrigin="anonymous"
     />
   );
