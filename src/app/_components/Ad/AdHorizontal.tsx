@@ -7,7 +7,7 @@ function AdHorizontal() {
       ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
         {}
       );
-    } catch (err: any) { console.log(err)}
+    } catch (err: unknown) { console.log(err)}
   }, []);
 
   return (
