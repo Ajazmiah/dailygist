@@ -17,7 +17,11 @@ export default async function CategoryPage({
 
     const perigonURL = URL;
 
-    const res = await fetch(perigonURL);
+    const res = await fetch(perigonURL, {
+      next:{
+        revalidate: 30
+      }
+    });
 
     if (!res.ok) {
       throw new Error(`HTTP error! Status: ${res.status}`);
