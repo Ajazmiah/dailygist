@@ -1,15 +1,26 @@
 "use client";
 import React, { useEffect } from "react";
 
+declare global {
+  interface Window {
+    adsbygoogle: any[];
+  }
+}
+
 function AdHorizontal() {
+
   useEffect(() => {
     try {
-      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
-        {}
-      );
-    } catch (err: unknown) { console.log(err)}
+      window.adsbygoogle = window.adsbygoogle || [];
+      window.adsbygoogle.push({});
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(`Adsbygoogle error: ${err.message}`);
+      } else {
+        console.error('Adsbygoogle encountered an unknown error', err);
+      }
+    }
   }, []);
-
   return (
     <div className="w-full bg-gray-700  h-[300px] mt-[2em] mb-[2em]">
       <ins
