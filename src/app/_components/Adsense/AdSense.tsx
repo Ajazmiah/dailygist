@@ -1,12 +1,6 @@
 import Script from "next/script"; // Ensure you are importing Script from 'next/script'
-import { pid } from "process";
 
-type AdsenseTypes = {
-  pId: string | undefined;
-};
-
-const AdSense = ({ pId }: AdsenseTypes) => {
-    console.log(pId)
+const AdSense = () => {
   return (
     <Script
       async

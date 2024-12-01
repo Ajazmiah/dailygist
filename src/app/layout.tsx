@@ -27,12 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { [key: string]: string }; // Adjust type based on your dynamic route
 }>) {
-  const pubId = process.env.GOOGLE_PUB_ID;
-
   return (
     <html lang="en">
       <head>
-        <AdSense pId={pubId} />
+        <AdSense />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
