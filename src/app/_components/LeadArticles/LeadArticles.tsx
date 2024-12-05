@@ -1,6 +1,7 @@
 import React from "react";
 import { PerigontypeArticle } from "@/TYEPS";
 import LeadArticleCard from "./LeadArticleCard";
+import SectionHeader from "../SectionHeader/SectionHeader";
 
 export type newsDataTypeProps = {
   articles: PerigontypeArticle[];
@@ -28,6 +29,9 @@ function LeadArticles({ articles, category }: newsDataTypeProps) {
       {/* Right Section - Articles List */}
       <div className="col-span-2 p-4 mt-[-44px]">
         {/* // className="relative flex flex-col bg-white rounded-lg hover:shadow-lg transition" */}
+        <SectionHeader>
+            Top News
+          </SectionHeader>
         <LeadArticleCard articles={articles} category={category} />
       </div>
     </div>

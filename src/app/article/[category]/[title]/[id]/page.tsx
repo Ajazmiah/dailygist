@@ -36,11 +36,7 @@ async function page({ params }: { params: { id: string; category: string } }) {
     <div className="container m-auto">
       <div className="mx-auto pt-[10em] pb-[8em] px-[2em] flex gap-16 max-w-[1280px]md:flex> ">
         <aside className="w-1/4 w-[330px] hidden lg:block">
-          <SectionHeader
-            SectionHeaderClass={{ className: "p-4 pb-1 text-xl font-semibold" }}
-          >
-            Top News
-          </SectionHeader>
+          <SectionHeader>Top News</SectionHeader>
           <div className="border-t border-black border-4"></div>
           <MoreLikeThis category={category} currentId={id} />
         </aside>
