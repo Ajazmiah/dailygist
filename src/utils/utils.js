@@ -76,3 +76,18 @@ export function getTodaysDate() {
 
   return `${year}-${month}-${day}`;
 }
+
+export const CATEGORIES = [
+  "Home",
+  "Technology",
+  "Politics",
+  "Science",
+  "Sports",
+  "Business",
+  "Crime",
+  "Entertainment",
+  "Health",
+  "Lifestyle",
+  "Environment",
+  "Food",
+];

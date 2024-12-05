@@ -1,25 +1,10 @@
 "use client";
-import { getIcon } from "@/utils/utils";
+import { CATEGORIES, getIcon } from "@/utils/utils";
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
 
 function CategoryMenu({ catergoryParam }: { catergoryParam: string }) {
-  const categories = [
-    "Home",
-    "Technology",
-    "Politics",
-    "Science",
-    "Sports",
-    "Business",
-    "Crime",
-    "Entertainment",
-    "Health",
-    "Lifestyle",
-    "Environment",
-    "Food",
-  ];
-
   const pathname = usePathname();
 
   const currentNav = (category: string) => {
@@ -38,7 +23,7 @@ function CategoryMenu({ catergoryParam }: { catergoryParam: string }) {
     <>
       <div className={menuClasses}>
         <ul className="flex max-w-full flex-row py-[0] pl-8 gap-[.8em] mx-auto overflow-x-scroll max-w-[960px]">
-          {categories.map((category) => (
+          {CATEGORIES.map((category) => (
             <li key={category} className="flex items-center gap-[1em]">
               {getIcon(category)}
               <Link

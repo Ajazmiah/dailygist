@@ -1,5 +1,7 @@
 import { PerigontypeArticle } from "@/TYEPS";
 import ArticleLists from "@/app/_components/Articles/Articles";
+import { CATEGORIES } from "@/utils/utils";
+import NotFound from "@/app/not-found";
 
 export default async function CategoryPage({
   params,
@@ -8,11 +10,13 @@ export default async function CategoryPage({
 }) {
   const category = params.category;
 
+  if(!CATEGORIES.includes(category)) return NotFound();
+
   const key = process.env.NEWSDATA_IO_KEY;
   let Articles = { results: [] };
 
   try {
-    const URL = `https://newsdata.io/api/1/latest?country=us,gb&prioritydomain=top&image=1&apikey=${key}&category=${category}`;
+    const URL = `https://newsdata.io/api/1/latest?country=us,gb,ca&prioritydomain=medium&image=1&apikey=${key}&category=${category}`;
 
     const perigonURL = URL;
 

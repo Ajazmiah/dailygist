@@ -2,22 +2,15 @@ import { PerigontypeArticle } from "@/TYEPS";
 import ArticleLists from "@/app/_components/Articles/Articles";
 import { mockData } from "./mockData";
 
-export default async function CategoryPage({
-  params,
-}: {
-  params: { category: string };
-}) {
-  const category = params.category;
-
-  const key = process.env.NEWSDATA_IO_KEY;
+export default async function CategoryPage() {
   let Articles = { results: [] };
+  const key = process.env.NEWSDATA_IO_KEY;
+  const category = "top";
 
   try {
-    const URL = `https://newsdata.io/api/1/latest?country=us,gb&domain=foxnews,bbc,cnn,nytimes&image=1&apikey=${key}&language=en&removeduplicate=1`;
+    const URL = `https://newsdata.io/api/1/latest?country=us,gb&domain=foxnews,bbc,cnn,nytimes,abc&image=1&apikey=${key}&language=en&removeduplicate=1`;
 
-    const perigonURL = URL;
-
-    const res = await fetch(perigonURL, {
+    const res = await fetch(URL, {
       next: {
         revalidate: 1800,
       },

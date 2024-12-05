@@ -36,8 +36,8 @@ export default function LeadArticleCard({
                     className="block text-xs text-gray-500"
                   >
                     {new Date(article.pubDate).toLocaleDateString()}
-                  </time>
-                  <h3 className="mt-0.5 text-lg text-gray-900 font-medium">
+                  </time> 
+                  <h3 className="mt-0.5 text-lg text-gray-900 font-medium line-clamp-2 overflow-hidden text-ellipsis">
                     {article.title}
                   </h3>
                   <p className="text-sm text-gray-700 mt-1 line-clamp-3 overflow-hidden text-ellipsis">
@@ -49,8 +49,7 @@ export default function LeadArticleCard({
                     style={{
                       top: "0",
                       maxWidth: "50px",
-                      right: "0",
-                      position: "absolute",
+              
                     }}
                   /> */}
                 </div>

@@ -9,6 +9,8 @@ type typeParams = {
   params: { id: string; title: string };
 };
 
+// generateParams()
+
 export async function generateMetadata({ params }: typeParams) {
   const article = await fetchSinglePost(params.id);
 
