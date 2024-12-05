@@ -5,12 +5,24 @@ import MoreLikeThis from "@/app/_components/MoreLikeThis/MoreLikeThis";
 import { notFound } from "next/navigation";
 import { fetchSinglePost } from "@/utils/dataFetch";
 import SectionHeader from "@/app/_components/SectionHeader/SectionHeader";
+import { PerigontypeArticle } from "@/TYEPS";
 
 type typeParams = {
   params: { id: string; title: string };
 };
 
-// generateParams()
+// export async function generateStaticParams() {
+//   const key = process.env.NEWSDATA_IO_KEY;
+//   const URL = `https://newsdata.io/api/1/latest?country=us,gb&domain=foxnews,bbc,cnn,nytimes,abc&image=1&apikey=${key}&language=en&removeduplicate=1`;
+
+//   const res = await fetch(URL);
+
+//   const data = await res.json();
+
+//   const { results } = data;
+
+//   return results.map((article: PerigontypeArticle) => article.article_id);
+// }
 
 export async function generateMetadata({ params }: typeParams) {
   const article = await fetchSinglePost(params.id);
