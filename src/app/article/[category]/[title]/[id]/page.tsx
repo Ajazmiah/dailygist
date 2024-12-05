@@ -36,8 +36,13 @@ export async function generateMetadata({ params }: typeParams) {
     },
   };
 }
+function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 async function page({ params }: { params: { id: string; category: string } }) {
+  await delay(1000);
+
   const { id, category } = params;
 
   const article = await fetchSinglePost(id);
