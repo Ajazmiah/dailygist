@@ -205,3 +205,7 @@ export const getAllSources = (category: string) => {
 
   return newsSourceStr
 }
+
+export type propsWithChildren = {
+  children: React.ReactNode
+}
