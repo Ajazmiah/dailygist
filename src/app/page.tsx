@@ -18,9 +18,9 @@ export default async function CategoryPage({
     const perigonURL = URL;
 
     const res = await fetch(perigonURL, {
-      next:{
-        revalidate: 30
-      }
+      next: {
+        revalidate: 1800,
+      },
     });
 
     if (!res.ok) {
@@ -28,7 +28,7 @@ export default async function CategoryPage({
     }
 
     const articles = await res.json();
-    Articles = articles || mockData
+    Articles = articles || mockData;
   } catch (error) {
     console.error("Error fetching articles:", error);
   }

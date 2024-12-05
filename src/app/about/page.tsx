@@ -1,6 +1,14 @@
 // app/about/page.tsx (or .jsx if you're using JavaScript)
 import React from "react";
 import Link from "next/link";
+import { Metadata } from "next";
+
+
+
+
+export const metadata: Metadata = {
+    title: 'About'
+}
 
 // This is a server component by default
 export default function AboutPage() {

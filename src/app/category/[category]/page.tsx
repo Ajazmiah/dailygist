@@ -12,12 +12,12 @@ export default async function CategoryPage({
   let Articles = { results: [] };
 
   try {
-    const URL = `https://newsdata.io/api/1/latest?country=us,gb&domain=bbc,yahoo,nbcnews,foxnews,politico&image=1&apikey=${key}&category=${category}`;
+    const URL = `https://newsdata.io/api/1/latest?country=us,gb&prioritydomain=top&image=1&apikey=${key}&category=${category}`;
 
     const perigonURL = URL;
 
     const res = await fetch(perigonURL, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 1800 },
     });
 
     if (!res.ok) {

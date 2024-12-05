@@ -6,9 +6,7 @@ const key = process.env.NEWSDATA_IO_KEY;
 
 const fetchArticles = async (category: string, currentId: string) => {
   try {
-    const perigonURL = `https://newsdata.io/api/1/latest?country=us,gb,in,bd&image=1&apikey=${key}&category=${
-      category === "other" ? "top" : category
-    }&size=3&language=en`;
+    const perigonURL = `https://newsdata.io/api/1/latest?country=us,gb&image=1&apikey=${key}&size=3&language=en&prioritydomain=medium`;
     const res = await fetch(perigonURL);
 
     if (!res.ok) {
@@ -16,6 +14,7 @@ const fetchArticles = async (category: string, currentId: string) => {
     }
 
     const data = await res.json();
+
     return data.results.filter(
       (article: PerigontypeArticle) => article.article_id !== currentId
     );
@@ -32,9 +31,10 @@ async function MoreLikeThis({
   currentId: string;
 }) {
   const articles = await fetchArticles(category, currentId);
+
   return (
     <>
-      {articles.map((article: PerigontypeArticle) => (
+      {articles?.map((article: PerigontypeArticle) => (
         <>
           <Link
             className="relative w-[100%]flex flex-col my-6 bg-white"
