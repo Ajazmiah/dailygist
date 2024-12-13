@@ -23,13 +23,22 @@ export async function generateMetadata({ params }: typeParams) {
   };
 }
 
-function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+export async function generateStaticParams({
+  params,
+}: {
+  params: { id: string; category: string };
+}) {
+  const key = process.env.NEWSDATA_IO_KEY;
+  const URL = `https://newsdata.io/api/1/latest?country=us,gb,ca&prioritydomain=medium&image=1&apikey=${key}&removeduplicate=1`;
+  const res = await fetch(URL);
+  const articles = await res.json();
+
+  return articles.results.map(
+    ({ article_id }: { article_id: string }) => article_id
+  );
 }
 
 async function page({ params }: { params: { id: string; category: string } }) {
-  await delay(1000);
-
   const { id, category } = params;
 
   const article = await fetchSinglePost(id);
