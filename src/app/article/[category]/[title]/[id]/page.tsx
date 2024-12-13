@@ -14,9 +14,8 @@ type typeParams = {
 export async function generateMetadata({ params }: typeParams) {
   const article = await fetchSinglePost(params.id);
 
-  const cleanTitle = article?.title.split("%20").join("-");
   return {
-    title: cleanTitle,
+    title: article.title,
     description: article.description,
     openGraph: {
       images: [{ url: article.image_url }],
@@ -34,8 +33,6 @@ async function page({ params }: { params: { id: string; category: string } }) {
   const { id, category } = params;
 
   const article = await fetchSinglePost(id);
-
-  if (!article) notFound();
 
   return (
     <div className="container m-auto">
