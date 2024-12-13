@@ -10,18 +10,18 @@ export default async function CategoryPage({
 }) {
   const category = params.category;
 
-  if(!CATEGORIES.includes(category)) return NotFound();
+  if (!CATEGORIES.includes(category)) return NotFound();
 
   const key = process.env.NEWSDATA_IO_KEY;
   let Articles = { results: [] };
 
   try {
-    const URL = `https://newsdata.io/api/1/latest?country=us,gb,ca&prioritydomain=medium&image=1&apikey=${key}&category=${category}`;
+    const URL = `https://newsdata.io/api/1/latest?country=us,gb,ca&prioritydomain=medium&image=1&apikey=${key}&category=${category}&removeduplicate=1`;
 
     const perigonURL = URL;
 
     const res = await fetch(perigonURL, {
-      next: { revalidate: 1800 },
+      next: { revalidate: 3600 },
     });
 
     if (!res.ok) {

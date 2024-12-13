@@ -11,23 +11,10 @@ type typeParams = {
   params: { id: string; title: string };
 };
 
-// export async function generateStaticParams() {
-//   const key = process.env.NEWSDATA_IO_KEY;
-//   const URL = `https://newsdata.io/api/1/latest?country=us,gb&domain=foxnews,bbc,cnn,nytimes,abc&image=1&apikey=${key}&language=en&removeduplicate=1`;
-
-//   const res = await fetch(URL);
-
-//   const data = await res.json();
-
-//   const { results } = data;
-
-//   return results.map((article: PerigontypeArticle) => article.article_id);
-// }
-
 export async function generateMetadata({ params }: typeParams) {
   const article = await fetchSinglePost(params.id);
 
-  const cleanTitle = article.title.split("%20").join("-");
+  const cleanTitle = article?.title.split("%20").join("-");
   return {
     title: cleanTitle,
     description: article.description,
@@ -36,6 +23,7 @@ export async function generateMetadata({ params }: typeParams) {
     },
   };
 }
+
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
