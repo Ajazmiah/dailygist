@@ -16,7 +16,7 @@ export default async function CategoryPage({
   let Articles = { results: [] };
 
   try {
-    const URL = `https://newsdata.io/api/1/latest?country=us,gb,ca&prioritydomain=medium&image=1&apikey=${key}&category=${catgory}&removeduplicate=1`;
+    const URL = `https://newsdata.io/api/1/latest?country=us,gb,ca&prioritydomain=medium&image=1&apikey=${key}&category=${category}&removeduplicate=1`;
 
     const perigonURL = URL;
 
