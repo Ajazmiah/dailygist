@@ -19,7 +19,7 @@ export default async function sitemap(params) {
   let articles = await res.json();
   const homeArticles = articles.results;
   //========================================//
- 
+
   let categoriesArticle = [];
 
   for (let i = 0; i < CATEGORIES.length; i++) {
@@ -36,7 +36,7 @@ export default async function sitemap(params) {
     }
   }
 
- const allArticles = [...homeArticles, ...categoriesArticle]
+  const allArticles = [...homeArticles, ...categoriesArticle];
 
   return allArticles.map((article) => {
     return {
