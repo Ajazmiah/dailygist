@@ -91,3 +91,18 @@ export const CATEGORIES = [
   "Environment",
   "Food",
 ];
+
+export const CATEGORIES_OBJ = {
+  Home: "Home",
+  Technology: "Technology",
+  Politics: "Politics",
+  Science: "Science",
+  Sports: "Sports",
+  Business: "Business",
+  Crime: "Crime",
+  Entertainment: "Entertainment",
+  Health: "Health",
+  Lifestyle: "Lifestyle",
+  Environment: "Environment",
+  Food: "Food",
+};
